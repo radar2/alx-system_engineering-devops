@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1amp...
+ls -1amp . 
