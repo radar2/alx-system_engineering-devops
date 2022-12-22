@@ -6,7 +6,7 @@ ERRDIR="\\\n\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\
 HEADER="\\\n\tadd_header X-Served-By \$HOSTNAME;\n"
 sudo apt-get -y update
 sudo apt-get -y install nginx
-echo "Holberton School" | sudo tee /usr/share/nginx/html/index.html
+echo "Best School" | sudo tee /usr/share/nginx/html/index.html
 sudo sed -i "30i $REDIR" $SRC
 sudo sed -i "28i $HEADER" $SRC
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
