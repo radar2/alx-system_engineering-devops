@@ -13,7 +13,8 @@ def get_todo():
         "https://jsonplaceholder.typicode.com/users/{}".format(user_id))
     user_data = user_result.json()
     to_do_result = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_data['id']))
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+            user_data['id']))
     to_do_list = to_do_result.json()
     complete_count = 0
     uncompleted_count = 0
