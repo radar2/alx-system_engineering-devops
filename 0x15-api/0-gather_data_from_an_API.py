@@ -18,14 +18,13 @@ def get_todo():
     to_do_list = to_do_result.json()
     complete_count = 0
     uncompleted_count = 0
+    completed_list = []
     for todo in to_do_list:
         if todo['completed']:
-            complete_count = complete_count + 1
-        else:
-            uncompleted_count = uncompleted_count + 1
+            completed_list.append(todo)
     print('Employee {} is done with tasks({}/{}):'.format(
-        user_data['name'], complete_count, len(to_do_list)))
-    for todo in to_do_list:
+        user_data['name'], len(completed_list), len(to_do_list)))
+    for todo in completed_list:
         print('\t {}'.format(todo['title']))
 
 
