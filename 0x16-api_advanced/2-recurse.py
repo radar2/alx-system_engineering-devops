@@ -5,6 +5,7 @@ import requests
 
 after = ""
 
+
 def recurse(subreddit, hot_list=[]):
     """returns list with titles and articles"""
     global after
