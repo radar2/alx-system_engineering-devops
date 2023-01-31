@@ -16,8 +16,6 @@ def get_todo():
         'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
             user_data['id']))
     to_do_list = to_do_result.json()
-    complete_count = 0
-    uncompleted_count = 0
     completed_list = []
     for todo in to_do_list:
         if todo['completed']:
