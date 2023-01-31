@@ -23,5 +23,6 @@ def recurse(subreddit, hot_list=[]):
         return recurse(subreddit, hot_list)
     return hot_list
 
+
 if __name__ == "__main__":
     pass
