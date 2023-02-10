@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# install load balancer
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
+sudo apt-get -y update
+sudo apt-get -y install haproxy=2.4.\*
+sudo echo -e "\nlisten www" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbind :80" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tbalance roundrobin" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver 48495-web-01 3.86.13.223" >> /etc/haproxy/haproxy.cfg
+sudo echo -e "\tserver 48495-web-02 100.26.174.7" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
+
