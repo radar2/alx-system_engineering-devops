@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Block incoming trafic except 22, 443, 80
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw enable
+
