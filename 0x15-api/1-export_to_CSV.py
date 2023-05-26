@@ -8,7 +8,7 @@ import csv
 
 
 def get_todo():
-    """List to do list
+    """ftech to do list
     """
     user_id = int(sys.argv[1])
     user_result = requests.get(
@@ -21,7 +21,7 @@ def get_todo():
     to_do_list = to_do_result.json()
     rows = []
     for todo in to_do_list:
-        row = [user_id, username, todo['completed'], todo['title']]
+        row = [str(user_id), username, todo['completed'], todo['title']]
         rows.append(row)
 
     filename = str(user_id) + '.csv'
@@ -29,8 +29,10 @@ def get_todo():
 
 
 def export_csv(filename, rows):
+    """Export data to csv
+    """
     with open(filename, 'w', encoding='UTF-8', newline='') as f:
-        writer = csv.writer(f, dialect='excel')
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL, dialect='excel')
         writer.writerows(rows)
         f.close()
 
