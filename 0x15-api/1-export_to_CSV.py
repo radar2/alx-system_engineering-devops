@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-Fetch information's of todo list
+Fetch todo list.
 """
+import csv
 import requests
 import sys
-import csv
 
 
 def get_todo():
-    """ftech to do list
+    """fetch to do list.
     """
     user_id = int(sys.argv[1])
     user_result = requests.get(
@@ -23,13 +23,12 @@ def get_todo():
     for todo in to_do_list:
         row = [str(user_id), username, todo['completed'], todo['title']]
         rows.append(row)
-
     filename = str(user_id) + '.csv'
     export_csv(filename, rows)
 
 
 def export_csv(filename, rows):
-    """Export data to csv
+    """Export data to csv.
     """
     with open(filename, 'w', encoding='UTF-8', newline='') as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL, dialect='excel')
